@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seni Seviyorum ❤️</title>
+<title>Biricik Sevgilime ❤️</title>
 
 <style>
 * {
@@ -51,12 +51,7 @@ body {
 h1 {
     font-size: 29px;
     margin: 20px 0;
-}
-
-.intro {
-    font-size: 17px;
-    line-height: 1.8;
-    color: #ffe2eb;
+    color: #fff0f4;
 }
 
 button {
@@ -122,7 +117,7 @@ button:hover {
 }
 
 @media(max-width: 480px) {
-    h1 { font-size: 24px; }
+    h1 { font-size: 25px; }
     #message { font-size: 15px; }
     .container { padding: 28px 20px; }
 }
@@ -135,12 +130,7 @@ button:hover {
 
 <div class="heart">❤️</div>
 
-<h1>Sana Söylemek İstediklerim Var...</h1>
-
-<p class="intro">
-Belki kelimeler her şeyi anlatmaya yetmez.
-Ama içimde kalanları bilmeni istiyorum.
-</p>
+<h1>Biricik Sevgilime...</h1>
 
 <button onclick="showMessage()">
 Mektubumu Aç ❤️
@@ -199,6 +189,7 @@ Seni Seviyorum ❤️
 function showMessage() {
     document.getElementById("message").style.display = "block";
     document.querySelector("button").style.display = "none";
+
     document.getElementById("message").scrollIntoView({
         behavior: "smooth",
         block: "start"
