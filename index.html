@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sana Bir Şey Söylemek İstiyorum ❤️</title>
+<title>Seni Seviyorum ❤️</title>
 
 <style>
 * {
@@ -15,31 +15,33 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #160b16, #53172d, #a12e4c);
+    background: linear-gradient(135deg, #170912, #59172e, #a52f52);
     color: white;
     font-family: Georgia, serif;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 25px 15px;
     overflow-x: hidden;
-    padding: 25px;
 }
 
 .container {
     width: 100%;
-    max-width: 650px;
+    max-width: 680px;
     text-align: center;
     padding: 35px 25px;
     background: rgba(255,255,255,0.09);
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 25px;
     backdrop-filter: blur(12px);
-    box-shadow: 0 0 35px rgba(0,0,0,0.3);
+    box-shadow: 0 0 40px rgba(0,0,0,0.35);
+    position: relative;
+    z-index: 2;
 }
 
 .heart {
     font-size: 65px;
-    animation: beat 1s infinite;
+    animation: beat 1.2s infinite;
 }
 
 @keyframes beat {
@@ -47,40 +49,52 @@ body {
 }
 
 h1 {
+    font-size: 29px;
     margin: 20px 0;
-    font-size: 30px;
 }
 
-p {
-    line-height: 1.8;
+.intro {
     font-size: 17px;
+    line-height: 1.8;
+    color: #ffe2eb;
 }
 
 button {
-    margin-top: 25px;
-    padding: 14px 25px;
+    margin-top: 28px;
+    padding: 15px 25px;
     border: none;
     border-radius: 30px;
     background: #ff527a;
     color: white;
     font-size: 16px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover {
     background: #ff7898;
+    transform: scale(1.04);
 }
 
 #message {
     display: none;
     margin-top: 30px;
     text-align: left;
-    animation: appear 1.5s;
+    font-size: 16px;
+    line-height: 2;
+    color: #fff0f4;
+    animation: appear 1.5s ease;
 }
 
 @keyframes appear {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .final {
@@ -88,14 +102,16 @@ button:hover {
     margin-top: 30px;
     color: #ffb7ca;
     font-size: 23px;
+    line-height: 1.8;
 }
 
 .floating {
     position: fixed;
     bottom: -30px;
-    animation: float 8s linear infinite;
+    animation: float 8s linear forwards;
     opacity: 0.6;
     pointer-events: none;
+    z-index: 1;
 }
 
 @keyframes float {
@@ -103,6 +119,12 @@ button:hover {
         transform: translateY(-110vh) rotate(360deg);
         opacity: 0;
     }
+}
+
+@media(max-width: 480px) {
+    h1 { font-size: 24px; }
+    #message { font-size: 15px; }
+    .container { padding: 28px 20px; }
 }
 </style>
 </head>
@@ -113,50 +135,61 @@ button:hover {
 
 <div class="heart">❤️</div>
 
-<h1>Sana Bir Şey Söylemek İstiyorum...</h1>
+<h1>Sana Söylemek İstediklerim Var...</h1>
 
-<p>
-Belki kelimeler her şeyi anlatmaya yetmez ama
-yine de içimde kalanları bilmeni istiyorum.
+<p class="intro">
+Belki kelimeler her şeyi anlatmaya yetmez.
+Ama içimde kalanları bilmeni istiyorum.
 </p>
 
 <button onclick="showMessage()">
-Sana söylemek istediklerim var ❤️
+Mektubumu Aç ❤️
 </button>
 
 <div id="message">
 
-<p>
-Sana bunları yazarken ne diyeceğimi, nereden başlayacağımı gerçekten bilmiyorum. Belki de yaptığım hatanın farkına çok geç vardım ama inan bana seni kaybetme ihtimali bile içimi tarifsiz bir şekilde acıtıyor.
+Sana bunları yazarken ne diyeceğimi, nereden başlayacağımı gerçekten bilmiyorum. Belki de yaptığım bir hata yapmamış olsam bile sen öyle hissettiysen, hatanın farkına çok geç vardım ama inan bana seni kaybetme ihtimali bile içimi tarifsiz bir şekilde acıtıyor.
 
-Ben seni öyle sıradan biri gibi sevmedim. Hayatıma girip birkaç güzel anı bırakıp gidecek biri olarak da görmedim. Ben seni hayatımda istedim, yarınlarımda istedim.
+<br><br>
 
-Belki bazen yanlış davrandım, belki seni üzdüm, belki de sevgimi sana olması gerektiği gibi gösteremedim. Ama hiçbir zaman sevgimden şüphe etmeni istemedim.
+Ben seni öyle sıradan biri gibi sevmiyorum. Hayatıma girip birkaç güzel anı bırakıp gidecek biri olarak da görmüyorum.
 
-Bir mesajının yüzümü güldürmesini, sesini duyduğumda içimin huzur bulmasını, gün içinde aklıma gelip durduk yere gülümsememi seviyorum.
+<br><br>
 
-Ben seni kaybetmek istemiyorum. Sadece alıştığım için değil, gerçekten sen olduğun için istemiyorum.
+Senden sadece bu konu için değil de genel olarak da özür dilemek istiyorum. Belki bazen yanlış davrandım, belki seni üzdüm, belki de sevgimi sana olması gerektiği gibi gösteremedim (hatta buna cesaret edemedim kabul ediyorum). Ama hiçbir zaman sevgimden şüphe etmeni istemedim.
 
-Seninle konuşmayı, sana bir şeyler anlatmayı, gününün nasıl geçtiğini merak etmeyi, birlikte hayaller kurmayı seviyorum. Hayatımda olmanı seviyorum.
+<br><br>
 
-Senden her şeyi bir anda unutmanı ya da hiçbir şey olmamış gibi davranmanı beklemiyorum. Sadece bana kendimi toparlamak ve sana ne kadar değer verdiğimi davranışlarımla göstermek için bir fırsat vermeni istiyorum.
+Ben seni kaybetmek istemiyorum. Hayatımda olmanı ve seni seviyorum.
+
+<br><br>
 
 Ben bu ilişkiyi, seni ve bizim aramızdaki şeyleri kolayca vazgeçilecek şeyler olarak görmüyorum.
 
-Belki şu an bana kırgınsın ama benim gözümdeki değerin hiçbir zaman azalmadı.
+<br><br>
+
+Belki şu an bana kırgınsın ama bilmeni istiyorum ki benim bana ne kadar kızsan da seni sevmeye devam edeceğim.
+
+<br><br>
 
 Seni üzmek değil, mutlu etmek istiyorum. Yanında olduğunda kendini değerli, sevildiğini ve önemsendiğini hissetmeni istiyorum.
 
-Ne olur sevgimi sadece yaptığım hatayla ölçme. Hatalarımın arkasına saklanmıyorum. Sadece seni gerçekten çok sevdiğimi ve seni kaybetmek istemediğimi bilmeni istiyorum.
+<br><br>
 
-Eğer hâlâ küçücük de olsa bir ihtimal varsa, o ihtimali birlikte güzelleştirmek istiyorum.
+Bunu şu an yapamasam da nedenini çok iyi biliyorsun. Ancak ilerleyen zamanlarda bunun için artık gerçekten çabalayacağım.
 
-</p>
+<br><br>
+
+Ne olur sevgimi sadece yaptığım (yapmadığım) hatayla ölçme. Sadece yine ve yine söylemek istiyorum, seni gerçekten çok sevdiğimi ve seni kaybetmek istemediğimi bilmeni istiyorum.
+
+<br><br>
+
+Bir daha seni kıracak bir eşekliğim yapmayacağım sevgilim. O yüzden bu güzel günlerimizi aramızda kırgınlık olmadan yaşayalım.
 
 <div class="final">
-Bir şans daha verir misin? ❤️
-<br><br>
-Seni gerçekten çok seviyorum...
+Seni Seviyorum ❤️
+<br>
+Özür Dilerim...
 </div>
 
 </div>
@@ -166,6 +199,10 @@ Seni gerçekten çok seviyorum...
 function showMessage() {
     document.getElementById("message").style.display = "block";
     document.querySelector("button").style.display = "none";
+    document.getElementById("message").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 }
 
 function createHeart() {
@@ -174,6 +211,7 @@ function createHeart() {
     heart.innerHTML = "❤️";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.fontSize = (15 + Math.random() * 20) + "px";
+
     document.body.appendChild(heart);
 
     setTimeout(() => heart.remove(), 8000);
@@ -184,4 +222,3 @@ setInterval(createHeart, 700);
 
 </body>
 </html>
- 
