@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sana Özel ❤️</title>
+    <title>Sana Özel 💜</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            /* Derin bordo taban ve lüks çiçek işlemeli/dantelli zarif bir doku efekti */
+            background-color: #3b0917;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(128, 0, 32, 0.6) 0%, rgba(20, 2, 7, 0.9) 100%),
+                radial-gradient(rgba(180, 40, 80, 0.25) 2px, transparent 2px),
+                radial-gradient(rgba(140, 20, 50, 0.2) 2px, transparent 2px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+            background-position: 0 0, 0 0, 15px 15px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
@@ -20,11 +27,12 @@
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(45, 5, 15, 0.55);
+            border: 1px solid rgba(255, 105, 180, 0.2);
             padding: 40px 30px;
             border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 20, 147, 0.1);
             max-width: 380px;
             width: 85%;
             animation: fadeIn 1s ease-in-out;
@@ -34,6 +42,8 @@
 
         .heart {
             font-size: 75px;
+            /* Mor Kalp Rengi Efekti */
+            filter: drop-shadow(0 0 12px rgba(186, 85, 211, 0.7));
             animation: heartbeat 1.2s infinite;
             cursor: pointer;
             margin-bottom: 15px;
@@ -52,6 +62,8 @@
             font-size: 24px;
             margin-bottom: 12px;
             font-weight: 600;
+            color: #f8bbd0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
         }
 
         p {
@@ -60,11 +72,12 @@
             margin-bottom: 25px;
             opacity: 0.95;
             min-height: 50px;
+            color: #fce4ec;
         }
 
         .btn {
             background-color: #fff;
-            color: #ff4b6e;
+            color: #7b1fa2;
             border: none;
             padding: 13px 28px;
             font-size: 16px;
@@ -72,11 +85,11 @@
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .btn:hover {
-            background-color: #ff4b6e;
+            background-color: #ba68c8;
             color: #fff;
             transform: translateY(-2px);
         }
@@ -117,7 +130,7 @@
             bottom: 10px;
             width: 8px;
             height: 0;
-            background: linear-gradient(to top, #2d6a4f, #52b788);
+            background: linear-gradient(to top, #1b4332, #40916c);
             border-radius: 4px;
             animation: growStem 1.2s ease-out forwards;
         }
@@ -126,7 +139,7 @@
             position: absolute;
             width: 45px;
             height: 25px;
-            background: #40916c;
+            background: #2d6a4f;
             border-radius: 0 50% 0 50%;
             opacity: 0;
         }
@@ -146,7 +159,7 @@
             animation: growLeafRight 0.8s ease-out 1s forwards;
         }
 
-        /* Çiçek Başlığı ve Taç Yapraklar */
+        /* Çiçek Başlığı ve Taç Yapraklar (Mor/Lila Tonlarında) */
         .bloom {
             position: absolute;
             top: 35px;
@@ -161,7 +174,7 @@
             position: absolute;
             width: 48px;
             height: 75px;
-            background: radial-gradient(circle at 50% 20%, #ffccd5, #ff4d6d 70%, #c9184a);
+            background: radial-gradient(circle at 50% 20%, #e1bee7, #ab47bc 70%, #6a1b9a);
             border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
             transform-origin: bottom center;
             bottom: 50%;
@@ -192,6 +205,8 @@
             margin-top: 10px;
             font-size: 20px;
             font-weight: bold;
+            color: #f3e5f5;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
             opacity: 0;
             animation: fadeIn 1s ease 2.3s forwards;
         }
@@ -219,7 +234,7 @@
     <div class="container">
         <!-- Mesaj Ekranı -->
         <div id="card-content">
-            <div class="heart" onclick="nextStep()">❤️</div>
+            <div class="heart" onclick="nextStep()">💜</div>
             <h1 id="title">İyi ki Varsın</h1>
             <p id="message">Üstüne tıklayarak sürprizi görebilirsin...</p>
             <button class="btn" id="action-btn" onclick="nextStep()">Tıkla ve Gör</button>
@@ -241,7 +256,7 @@
                     <div class="center-dot"></div>
                 </div>
             </div>
-            <div class="gift-note">Bu çiçek senin için güzelim 🌸❤️</div>
+            <div class="gift-note">Bu çiçek senin için güzelim 🌸💜</div>
         </div>
     </div>
 
@@ -249,7 +264,7 @@
         const messages = [
             { title: "Seninle Her An...", text: "Dünyanın en güzel ve en değerli insanısın. İyi ki hayatımdasın! 🥰" },
             { title: "Birlikte Çok Güzeliz", text: "Gülüşün her şeye bedel. Seni çok ama çok seviyorum! ✨" },
-            { title: "Sonsuza Kadar...", text: "Seninle geçirdiğim her saniye paha biçilemez. ❤️" }
+            { title: "Sonsuza Kadar...", text: "Seninle geçirdiğim her saniye paha biçilemez. 💜" }
         ];
 
         let index = -1;
