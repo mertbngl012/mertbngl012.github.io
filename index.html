@@ -21,21 +21,22 @@
 
         .container {
             background: rgba(255, 255, 255, 0.15);
-            padding: 40px;
+            padding: 40px 30px;
             border-radius: 20px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
-            width: 90%;
-            animation: fadeIn 1.5s ease-in-out;
+            max-width: 380px;
+            width: 85%;
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Kalp Figürü Animasyonu */
         .heart {
-            font-size: 80px;
+            font-size: 75px;
             animation: heartbeat 1.2s infinite;
             cursor: pointer;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             user-select: none;
         }
 
@@ -49,7 +50,7 @@
 
         h1 {
             font-size: 24px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 600;
         }
 
@@ -57,20 +58,21 @@
             font-size: 16px;
             line-height: 1.6;
             margin-bottom: 25px;
-            opacity: 0.9;
+            opacity: 0.95;
+            min-height: 50px;
         }
 
         .btn {
             background-color: #fff;
             color: #ff4b6e;
             border: none;
-            padding: 12px 25px;
+            padding: 13px 28px;
             font-size: 16px;
             font-weight: bold;
             border-radius: 30px;
             cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
         .btn:hover {
@@ -79,8 +81,135 @@
             transform: translateY(-2px);
         }
 
+        .btn-gift {
+            background: linear-gradient(45deg, #ffd700, #ffae00);
+            color: #5c2c00;
+            animation: pulseBtn 1.5s infinite;
+        }
+
+        @keyframes pulseBtn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 215, 0, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+        }
+
+        /* Çiçek Sahnesi */
+        .flower-scene {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .flower-wrapper {
+            position: relative;
+            width: 220px;
+            height: 280px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Sap ve Yapraklar */
+        .stem {
+            position: absolute;
+            bottom: 10px;
+            width: 8px;
+            height: 0;
+            background: linear-gradient(to top, #2d6a4f, #52b788);
+            border-radius: 4px;
+            animation: growStem 1.2s ease-out forwards;
+        }
+
+        .leaf {
+            position: absolute;
+            width: 45px;
+            height: 25px;
+            background: #40916c;
+            border-radius: 0 50% 0 50%;
+            opacity: 0;
+        }
+
+        .leaf.left {
+            bottom: 75px;
+            left: 65px;
+            transform: rotate(-25deg) scale(0);
+            animation: growLeafLeft 0.8s ease-out 0.8s forwards;
+        }
+
+        .leaf.right {
+            bottom: 50px;
+            right: 65px;
+            border-radius: 50% 0 50% 0;
+            transform: rotate(25deg) scale(0);
+            animation: growLeafRight 0.8s ease-out 1s forwards;
+        }
+
+        /* Çiçek Başlığı ve Taç Yapraklar */
+        .bloom {
+            position: absolute;
+            top: 35px;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .petal {
+            position: absolute;
+            width: 48px;
+            height: 75px;
+            background: radial-gradient(circle at 50% 20%, #ffccd5, #ff4d6d 70%, #c9184a);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            transform-origin: bottom center;
+            bottom: 50%;
+            opacity: 0;
+            box-shadow: inset 0 0 10px rgba(255,255,255,0.4);
+        }
+
+        .p1 { transform: rotate(0deg) scale(0); animation: openPetal1 1s ease-out 1.1s forwards; }
+        .p2 { transform: rotate(60deg) scale(0); animation: openPetal2 1s ease-out 1.25s forwards; }
+        .p3 { transform: rotate(120deg) scale(0); animation: openPetal3 1s ease-out 1.4s forwards; }
+        .p4 { transform: rotate(180deg) scale(0); animation: openPetal4 1s ease-out 1.55s forwards; }
+        .p5 { transform: rotate(240deg) scale(0); animation: openPetal5 1s ease-out 1.7s forwards; }
+        .p6 { transform: rotate(300deg) scale(0); animation: openPetal6 1s ease-out 1.85s forwards; }
+
+        .center-dot {
+            position: absolute;
+            width: 34px;
+            height: 34px;
+            background: radial-gradient(circle, #fff3b0, #ffb703);
+            border-radius: 50%;
+            z-index: 5;
+            transform: scale(0);
+            box-shadow: 0 0 15px rgba(255, 183, 3, 0.8);
+            animation: popCenter 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s forwards;
+        }
+
+        .gift-note {
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeIn 1s ease 2.3s forwards;
+        }
+
+        @keyframes growStem { to { height: 155px; } }
+        @keyframes growLeafLeft { to { opacity: 1; transform: rotate(-25deg) scale(1); } }
+        @keyframes growLeafRight { to { opacity: 1; transform: rotate(25deg) scale(1); } }
+        
+        @keyframes openPetal1 { to { opacity: 1; transform: rotate(0deg) scale(1); } }
+        @keyframes openPetal2 { to { opacity: 1; transform: rotate(60deg) scale(1); } }
+        @keyframes openPetal3 { to { opacity: 1; transform: rotate(120deg) scale(1); } }
+        @keyframes openPetal4 { to { opacity: 1; transform: rotate(180deg) scale(1); } }
+        @keyframes openPetal5 { to { opacity: 1; transform: rotate(240deg) scale(1); } }
+        @keyframes openPetal6 { to { opacity: 1; transform: rotate(300deg) scale(1); } }
+        @keyframes popCenter { to { transform: scale(1); } }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
@@ -88,29 +217,61 @@
 <body>
 
     <div class="container">
-        <!-- Kalp Figürü -->
-        <div class="heart" onclick="changeText()">❤️</div>
-        
-        <h1 id="title">İyi ki Varsın</h1>
-        <p id="message">Üstüne tıklayarak sürprizi görebilirsin...</p>
-        
-        <button class="btn" onclick="changeText()">Tıkla ve Gör</button>
+        <!-- Mesaj Ekranı -->
+        <div id="card-content">
+            <div class="heart" onclick="nextStep()">❤️</div>
+            <h1 id="title">İyi ki Varsın</h1>
+            <p id="message">Üstüne tıklayarak sürprizi görebilirsin...</p>
+            <button class="btn" id="action-btn" onclick="nextStep()">Tıkla ve Gör</button>
+        </div>
+
+        <!-- Çiçek Animasyonu Ekranı -->
+        <div class="flower-scene" id="flower-scene">
+            <div class="flower-wrapper">
+                <div class="stem"></div>
+                <div class="leaf left"></div>
+                <div class="leaf right"></div>
+                <div class="bloom">
+                    <div class="petal p1"></div>
+                    <div class="petal p2"></div>
+                    <div class="petal p3"></div>
+                    <div class="petal p4"></div>
+                    <div class="petal p5"></div>
+                    <div class="petal p6"></div>
+                    <div class="center-dot"></div>
+                </div>
+            </div>
+            <div class="gift-note">Bu çiçek senin için güzelim 🌸❤️</div>
+        </div>
     </div>
 
     <script>
         const messages = [
             { title: "Seninle Her An...", text: "Dünyanın en güzel ve en değerli insanısın. İyi ki hayatımdasın! 🥰" },
             { title: "Birlikte Çok Güzeliz", text: "Gülüşün her şeye bedel. Seni çok ama çok seviyorum! ✨" },
-            { title: "Kodlar Bahane...", text: "Asıl asıl yazılımcı aşkı kalpte başlar. 💻❤️" },
-            { title: "Sonsuza Kadar...", text: "Seninle geçirdiğim her saniye paha biçilemez. 🚀" }
+            { title: "Sonsuza Kadar...", text: "Seninle geçirdiğim her saniye paha biçilemez. ❤️" }
         ];
 
-        let index = 0;
+        let index = -1;
+        let isLastStep = false;
 
-        function changeText() {
-            index = (index + 1) % messages.length;
+        function nextStep() {
+            if (isLastStep) {
+                document.getElementById("card-content").style.display = "none";
+                document.getElementById("flower-scene").style.display = "flex";
+                return;
+            }
+
+            index++;
             document.getElementById("title").innerText = messages[index].title;
             document.getElementById("message").innerText = messages[index].text;
+
+            if (index === messages.length - 1) {
+                isLastStep = true;
+                const btn = document.getElementById("action-btn");
+                btn.innerText = "Hediyeni Al 🎁";
+                btn.classList.add("btn-gift");
+            }
         }
     </script>
 
