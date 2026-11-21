@@ -1,215 +1,118 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biricik Sevgilime ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sana Özel ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            color: #fff;
+            text-align: center;
+        }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 90%;
+            animation: fadeIn 1.5s ease-in-out;
+        }
 
-body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #170912, #59172e, #a52f52);
-    color: white;
-    font-family: Georgia, serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 25px 15px;
-    overflow-x: hidden;
-}
+        /* Kalp Figürü Animasyonu */
+        .heart {
+            font-size: 80px;
+            animation: heartbeat 1.2s infinite;
+            cursor: pointer;
+            margin-bottom: 20px;
+            user-select: none;
+        }
 
-.container {
-    width: 100%;
-    max-width: 680px;
-    text-align: center;
-    padding: 35px 25px;
-    background: rgba(255,255,255,0.09);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 25px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 0 40px rgba(0,0,0,0.35);
-    position: relative;
-    z-index: 2;
-}
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.3); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.25); }
+            60% { transform: scale(1); }
+        }
 
-.heart {
-    font-size: 65px;
-    animation: beat 1.2s infinite;
-}
+        h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
 
-@keyframes beat {
-    50% { transform: scale(1.2); }
-}
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
 
-h1 {
-    font-size: 29px;
-    margin: 20px 0;
-    color: #fff0f4;
-}
+        .btn {
+            background-color: #fff;
+            color: #ff4b6e;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
 
-button {
-    margin-top: 28px;
-    padding: 15px 25px;
-    border: none;
-    border-radius: 30px;
-    background: #ff527a;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        .btn:hover {
+            background-color: #ff4b6e;
+            color: #fff;
+            transform: translateY(-2px);
+        }
 
-button:hover {
-    background: #ff7898;
-    transform: scale(1.04);
-}
-
-#message {
-    display: none;
-    margin-top: 30px;
-    text-align: left;
-    font-size: 16px;
-    line-height: 2;
-    color: #fff0f4;
-    animation: appear 1.5s ease;
-}
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.final {
-    text-align: center;
-    margin-top: 30px;
-    color: #ffb7ca;
-    font-size: 23px;
-    line-height: 1.8;
-}
-
-.floating {
-    position: fixed;
-    bottom: -30px;
-    animation: float 8s linear forwards;
-    opacity: 0.6;
-    pointer-events: none;
-    z-index: 1;
-}
-
-@keyframes float {
-    to {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-@media(max-width: 480px) {
-    h1 { font-size: 25px; }
-    #message { font-size: 15px; }
-    .container { padding: 28px 20px; }
-}
-</style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <div class="container">
+        <!-- Kalp Figürü -->
+        <div class="heart" onclick="changeText()">❤️</div>
+        
+        <h1 id="title">İyi ki Varsın</h1>
+        <p id="message">Üstüne tıklayarak sürprizi görebilirsin...</p>
+        
+        <button class="btn" onclick="changeText()">Tıkla ve Gör</button>
+    </div>
 
-<div class="heart">❤️</div>
+    <script>
+        const messages = [
+            { title: "Seninle Her An...", text: "Dünyanın en güzel ve en değerli insanısın. İyi ki hayatımdasın! 🥰" },
+            { title: "Birlikte Çok Güzeliz", text: "Gülüşün her şeye bedel. Seni çok ama çok seviyorum! ✨" },
+            { title: "Kodlar Bahane...", text: "Asıl asıl yazılımcı aşkı kalpte başlar. 💻❤️" },
+            { title: "Sonsuza Kadar...", text: "Seninle geçirdiğim her saniye paha biçilemez. 🚀" }
+        ];
 
-<h1>Biricik Sevgilime...</h1>
+        let index = 0;
 
-<button onclick="showMessage()">
-Mektubumu Aç ❤️
-</button>
-
-<div id="message">
-
-Sana bunları yazarken ne diyeceğimi, nereden başlayacağımı gerçekten bilmiyorum. Belki de yaptığım bir hata yapmamış olsam bile sen öyle hissettiysen, hatanın farkına çok geç vardım ama inan bana seni kaybetme ihtimali bile içimi tarifsiz bir şekilde acıtıyor.
-
-<br><br>
-
-Ben seni öyle sıradan biri gibi sevmiyorum. Hayatıma girip birkaç güzel anı bırakıp gidecek biri olarak da görmüyorum.
-
-<br><br>
-
-Senden sadece bu konu için değil de genel olarak da özür dilemek istiyorum. Belki bazen yanlış davrandım, belki seni üzdüm, belki de sevgimi sana olması gerektiği gibi gösteremedim (hatta buna cesaret edemedim kabul ediyorum). Ama hiçbir zaman sevgimden şüphe etmeni istemedim.
-
-<br><br>
-
-Ben seni kaybetmek istemiyorum. Hayatımda olmanı ve seni seviyorum.
-
-<br><br>
-
-Ben bu ilişkiyi, seni ve bizim aramızdaki şeyleri kolayca vazgeçilecek şeyler olarak görmüyorum.
-
-<br><br>
-
-Belki şu an bana kırgınsın ama bilmeni istiyorum ki benim bana ne kadar kızsan da seni sevmeye devam edeceğim.
-
-<br><br>
-
-Seni üzmek değil, mutlu etmek istiyorum. Yanında olduğunda kendini değerli, sevildiğini ve önemsendiğini hissetmeni istiyorum.
-
-<br><br>
-
-Bunu şu an yapamasam da nedenini çok iyi biliyorsun. Ancak ilerleyen zamanlarda bunun için artık gerçekten çabalayacağım.
-
-<br><br>
-
-Ne olur sevgimi sadece yaptığım (yapmadığım) hatayla ölçme. Sadece yine ve yine söylemek istiyorum, seni gerçekten çok sevdiğimi ve seni kaybetmek istemediğimi bilmeni istiyorum.
-
-<br><br>
-
-Bir daha seni kıracak bir eşekliğim yapmayacağım sevgilim. O yüzden bu güzel günlerimizi aramızda kırgınlık olmadan yaşayalım.
-
-<div class="final">
-Seni Seviyorum ❤️
-<br>
-Özür Dilerim...
-</div>
-
-</div>
-</div>
-
-<script>
-function showMessage() {
-    document.getElementById("message").style.display = "block";
-    document.querySelector("button").style.display = "none";
-
-    document.getElementById("message").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
-}
-
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.className = "floating";
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = (15 + Math.random() * 20) + "px";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 8000);
-}
-
-setInterval(createHeart, 700);
-</script>
+        function changeText() {
+            index = (index + 1) % messages.length;
+            document.getElementById("title").innerText = messages[index].title;
+            document.getElementById("message").innerText = messages[index].text;
+        }
+    </script>
 
 </body>
 </html>
